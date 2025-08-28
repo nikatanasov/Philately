@@ -42,6 +42,7 @@ public class StampService {
         return stampRepository.findAll().stream().filter(s->!s.getOwner().getId().equals(user.getId())).sorted(Comparator.comparing(Stamp::getName).thenComparing(Stamp::getDescription)).collect(Collectors.toList());
     }
 
+    //Method for adding wished stamp
     public void addWishedStamp(User user, UUID id) {
         Stamp stamp = stampRepository.findById(id).orElseThrow(()->new RuntimeException("No stamp with id "+id+"!"));
         List<WishedStamp> wishedStamps = wishedStampRepository.findAll().stream().filter(s->s.getOwner().equals(user)).collect(Collectors.toList());
