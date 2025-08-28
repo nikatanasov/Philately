@@ -26,6 +26,7 @@ public class StampService {
         this.wishedStampRepository = wishedStampRepository;
     }
 
+    //Adding new stamp
     public void addNewStamp(User user, AddingStampRequest addingStampRequest) {
         Stamp stamp = Stamp.builder()
                 .name(addingStampRequest.getName())
